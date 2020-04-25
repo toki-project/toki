@@ -12,7 +12,6 @@ repos:
       rev: 19.10b0
       hooks:
         - id: black
-          exclude: (ibis/_version|versioneer).py
 
     - repo: https://gitlab.com/pycqa/flake8
       rev: v3.7.9
@@ -31,4 +30,3 @@ repos:
       rev: 5.0.2
       hooks:
         - id: pydocstyle
-

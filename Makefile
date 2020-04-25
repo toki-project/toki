@@ -1,6 +1,8 @@
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 
+MAKEFILE_DIR = $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
+
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
 
@@ -90,3 +92,18 @@ install: clean ## install the package to the active Python's site-packages
 develop: clean
 	python setup.py develop
 	pre-commit install
+
+
+# docker make commands
+COMPOSE_FILE := "$(MAKEFILE_DIR)/ci/docker-compose.yml"
+DOCKER := PYTHON_VERSION=$(PYTHON_VERSION) docker-compose -f $(COMPOSE_FILE)
+DOCKER_RUN := $(DOCKER) run --rm
+
+docker-build:
+	$(DOCKER) build --pull toki
+
+docker-pre-commit-check:
+	$(DOCKER_RUN) toki pre-commit run --all-files
+
+docker-test:
+	$(DOCKER_RUN) toki pytest

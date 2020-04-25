@@ -2,14 +2,14 @@ version: '3'
 services:
 
   toki:
-    image: toki:${PYTHON_VERSION:-3.6}
+    image: toki:${PYTHON_VERSION:-3.7}
     env_file:
       - ./.env
     volumes:
       - /tmp/toki:/tmp
-      - ..:/ibis
+      - ..:/toki
     build:
       context: ..
       dockerfile: ci/Dockerfile.dev
       args:
-        PYTHON_VERSION: ${PYTHON_VERSION:-3.6}
+        PYTHON_VERSION: ${PYTHON_VERSION:-3.7}
