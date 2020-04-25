@@ -1,0 +1,21 @@
+FROM continuumio/miniconda3
+
+ADD ci/requirements-dev.yml /
+
+RUN conda config --add channels conda-forge \
+  && conda update --all --yes --quiet \
+  && conda install mamba --yes --quit \
+  && mamba install --yes conda-build \
+  && conda clean -afy
+
+RUN mamba env create --name toki-env --file /requirements-dev.yml \
+  && conda clean -afy
+
+RUN echo 'source /opt/conda/bin/activate toki-env && exec "$@"' > activate.sh
+
+COPY . /toki
+WORKDIR /toki
+
+RUN bash /activate.sh pip install -e . --no-deps --ignore-installed --no-cache-dir
+
+ENTRYPOINT ["bash", "/activate.sh"]
