@@ -14,7 +14,7 @@ repos:
         - id: black
 
     - repo: https://gitlab.com/pycqa/flake8
-      rev: v3.7.9
+      rev: 3.7.9
       hooks:
         - id: flake8
           types:
@@ -23,10 +23,5 @@ repos:
     - repo: https://github.com/pre-commit/mirrors-mypy
       rev: 'master'
       hooks:
-      -   id: mypy
-          files: toki/
-
-    - repo: https://github.com/pycqa/pydocstyle
-      rev: 5.0.2
-      hooks:
-        - id: pydocstyle
+      - id: mypy
+        files: toki/

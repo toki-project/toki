@@ -2,6 +2,8 @@ channels:
   - conda-forge
 dependencies:
   - graphviz
+  - ipython
+  - pandas
   - python
   - python-graphviz
   # dev

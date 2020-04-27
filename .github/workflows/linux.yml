@@ -26,6 +26,8 @@ jobs:
     - name: Build toki image
       run: make build
     - name: Run pre-commit check
-      run: make pre-commit-check
+      run: make docker-pre-commit-check
+    - name: Run docstring check
+      run: make docker-check-docstring
     - name: Test with pytest
-      run: make test
+      run: make docker-test

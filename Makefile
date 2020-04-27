@@ -102,6 +102,9 @@ DOCKER_RUN := $(DOCKER) run --rm
 docker-build:
 	$(DOCKER) build --pull toki
 
+docker-check-docstring:
+	$(DOCKER_RUN) toki pydocstyle --match-dir='toki'
+
 docker-pre-commit-check:
 	$(DOCKER_RUN) toki pre-commit run --all-files
 
