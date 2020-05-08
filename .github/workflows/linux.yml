@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.8]
 
-    variables:
-      COMPOSE_FILE: ci/docker-compose.yml
+    env:
+      COMPOSE_FILE: docker/docker-compose.yml
       PYTHON_VERSION: ${{ matrix.python-version }}
 
     steps:
     - uses: actions/checkout@v2
     - name: Build toki image
-      run: make build
+      run: make docker-build
     - name: Run pre-commit check
       run: make docker-pre-commit-check
     - name: Run docstring check

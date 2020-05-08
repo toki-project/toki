@@ -11,7 +11,7 @@ from toki.types import Expr
 
 
 class DataType(Expr):
-    """Main data type class"""
+    """Main data type class."""
 
 
 class Boolean(DataType):

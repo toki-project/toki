@@ -8,6 +8,7 @@ dependencies:
   - python-graphviz
   # dev
   - black
+  - docker-compose
   - flake8
   - mypy
   - pip

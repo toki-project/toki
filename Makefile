@@ -95,7 +95,7 @@ develop: clean
 
 
 # docker make commands
-COMPOSE_FILE := "$(MAKEFILE_DIR)/ci/docker-compose.yml"
+COMPOSE_FILE := "$(MAKEFILE_DIR)/docker/docker-compose.yml"
 DOCKER := PYTHON_VERSION=$(PYTHON_VERSION) docker-compose -f $(COMPOSE_FILE)
 DOCKER_RUN := $(DOCKER) run --rm
 

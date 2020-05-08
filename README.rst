@@ -16,7 +16,9 @@ Toki
         :target: https://toki.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
+.. image:: https://github.com/xmnlab/toki/workflows/Python%20package/badge.svg
+        :target: https://github.com/xmnlab/toki/actions/
+        :alt: CI/GitHub Actions
 
 
 Toki: Database Expression API

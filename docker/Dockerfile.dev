@@ -1,17 +1,16 @@
 FROM continuumio/miniconda3
 
 ARG PYTHON_VERSION
-ADD ci/environment-dev.yml /
+ADD docker/environment-dev.yml /
 
 RUN sed -i "s/-\ python$/-\ python=${PYTHON_VERSION}/" /environment-dev.yml
 
 RUN conda config --add channels conda-forge \
   && conda update --all --yes --quiet \
-  && conda install mamba --yes --quiet \
-  && mamba install --yes conda-build \
+  && conda install --yes conda-build \
   && conda clean -afy
 
-RUN mamba env create --name toki-env --file /requirements-dev.yml \
+RUN conda env create --name toki-env --file /environment-dev.yml \
   && conda clean -afy
 
 RUN echo 'source /opt/conda/bin/activate toki-env && exec "$@"' > activate.sh

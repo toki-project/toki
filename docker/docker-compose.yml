@@ -10,6 +10,6 @@ services:
       - ..:/toki
     build:
       context: ..
-      dockerfile: ci/Dockerfile.dev
+      dockerfile: docker/Dockerfile.dev
       args:
         PYTHON_VERSION: ${PYTHON_VERSION:-3.7}
