@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/xmnlab/toki
+    $ git clone git://github.com/toki-project/toki
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/xmnlab/toki/tarball/master
+    $ curl  -OL https://github.com/toki-project/toki/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/xmnlab/toki
-.. _tarball: https://github.com/xmnlab/toki/tarball/master
+.. _Github repo: https://github.com/toki-project/toki
+.. _tarball: https://github.com/toki-project/toki/tarball/master

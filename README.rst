@@ -6,18 +6,15 @@ Toki
 .. image:: https://img.shields.io/pypi/v/toki.svg
         :target: https://pypi.python.org/pypi/toki
 
-.. image:: https://img.shields.io/travis/xmnlab/toki.svg
-        :target: https://travis-ci.org/xmnlab/toki
-
-.. image:: https://codecov.io/gh/xmnlab/toki/branch/master/graph/badge.svg
-        :target: https://codecov.io/gh/xmnlab/toki
+.. image:: https://codecov.io/gh/toki-project/toki/branch/master/graph/badge.svg
+        :target: https://codecov.io/gh/toki-project/toki
 
 .. image:: https://readthedocs.org/projects/toki/badge/?version=latest
         :target: https://toki.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://github.com/xmnlab/toki/workflows/Python%20package/badge.svg
-        :target: https://github.com/xmnlab/toki/actions/
+.. image:: https://github.com/toki-project/toki/workflows/Python%20package/badge.svg
+        :target: https://github.com/toki-project/toki/actions/
         :alt: CI/GitHub Actions
 
 
