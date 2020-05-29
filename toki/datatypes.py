@@ -26,12 +26,21 @@ class Number(DataType):
         """Define ``add`` expression."""
 
     @metadsl.expression
+    def __div__(self, other: Union[Number, int, float]) -> Number:
+        """Define ``div`` expression."""
+
+    @metadsl.expression
     def __divmod__(self, other: Union[Number, int, float]) -> Number:
         """Define ``divmod`` expression."""
 
+    # note: maybe other should be Union[Number, int, float]
     @metadsl.expression
-    def __eq__(self, other: Union[Number, int, float]) -> Number:
+    def __eq__(self, other: Number) -> Number:
         """Define ``eq`` expression."""
+
+    @metadsl.expression
+    def __floordiv__(self, other: Union[Number, int, float]) -> Number:
+        """Define ``floordiv`` expression."""
 
     @metadsl.expression
     def __ge__(  # type: ignore
@@ -94,6 +103,10 @@ class Number(DataType):
     @metadsl.expression
     def __sub__(self, other: Union[Number, int, float]) -> Number:
         """Define ``sub`` expression."""
+
+    @metadsl.expression
+    def __truediv__(self, other: Union[Number, int, float]) -> Number:
+        """Define ``truediv`` expression."""
 
 
 class Integer(Number):

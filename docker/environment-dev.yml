@@ -3,8 +3,9 @@ channels:
 dependencies:
   - graphviz
   - ipython
+  - metadsl-all
   - pandas
-  - python
+  - python>=3.8
   - python-graphviz
   # dev
   - black
@@ -19,7 +20,6 @@ dependencies:
   - pytest-mock
   - pytest-xdist
   - pip:
-    - metadsl
     # see .pre-commit-config.yaml, isort pinned
     - seed-isort-config
     # we should try using isort release that will be next after 4.3.21-2
