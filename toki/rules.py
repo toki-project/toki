@@ -1,3 +1,4 @@
+"""Strategy rules mechanism module."""
 from typing import Callable
 
 import metadsl_rewrite
@@ -9,8 +10,13 @@ class RegisterStrategy:
     _inner_strategy: list = []
 
     def register(self, fn: Callable):
-        """Register a strategy."""
+        """
+        Register a strategy.
 
+        Parameters
+        ----------
+        fn : Callable
+        """
         self._inner_strategy.append(fn)
 
     def get_rules(self) -> metadsl_rewrite.StrategyRepeat:
