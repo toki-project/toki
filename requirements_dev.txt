@@ -9,3 +9,4 @@ twine==1.12.1
 pytest==3.8.2
 pytest-runner==4.2
 pytest-cov==2.6.1
+jupyter-book>=0.7.0b

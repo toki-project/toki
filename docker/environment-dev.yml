@@ -19,6 +19,7 @@ dependencies:
   - pytest-cov
   - pytest-mock
   - pytest-xdist
+  - jupyter-book>=0.7.0b
   - pip:
     # see .pre-commit-config.yaml, isort pinned
     - seed-isort-config
