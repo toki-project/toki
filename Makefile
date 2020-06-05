@@ -94,6 +94,11 @@ develop: clean
 	pre-commit install
 
 
+develop_notebook:
+	python setup.py develop
+	jupyter labextension install typez
+
+
 # docker make commands
 COMPOSE_FILE := "$(MAKEFILE_DIR)/docker/docker-compose.yml"
 DOCKER := PYTHON_VERSION=$(PYTHON_VERSION) docker-compose -f $(COMPOSE_FILE)

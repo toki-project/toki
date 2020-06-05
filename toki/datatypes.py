@@ -5,13 +5,16 @@ from typing import Union
 
 import metadsl
 
-from toki.types import Expr
+from toki import types as tps
 
 # datatype classes
 
 
-class DataType(Expr):
+class DataType(tps.Expr):
     """Main data type class."""
+
+    def __repr__(self) -> str:
+        return '{}: {}'.format(self.function, self.args[0])
 
 
 class Boolean(DataType):
