@@ -1,4 +1,6 @@
 """Strategy rules mechanism module."""
+from __future__ import annotations
+
 from typing import Callable
 
 import metadsl

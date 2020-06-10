@@ -1,26 +1,9 @@
 """Public API definition."""
-from typing import List, Union
+from typing import Union
 
 from toki import datatypes as dts
 from toki import operations as ops
 from toki import rules as rls
-from toki import types as tps
-
-# from toki import types as tps
-
-# table
-
-
-def _projection_col(key: str) -> tps.Column:
-    """Dispatch for getitem for a given string key."""
-
-
-def _projection_cols(key: List[str]) -> tps.Projection:
-    """Dispatch for getitem for a given string key."""
-
-
-rls.register('Column', tps.TableBase, '__getitem__', _projection_col)
-rls.register('Projection', tps.TableBase, '__getitem__', _projection_cols)
 
 # number
 

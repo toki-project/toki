@@ -6,8 +6,6 @@ from typing import Any, Callable, Dict, List, Optional, Union
 
 import metadsl
 
-from toki import rules as rls
-
 # Expressions definition
 
 
@@ -21,6 +19,7 @@ def constructor(fn: Callable):
     return _fn
 
 
+@dataclass
 class Expr(metadsl.Expression):
     """Base expression class."""
 
@@ -55,7 +54,6 @@ class DatabaseSchema(Expr):
     """Database schema expression."""
 
 
-@dataclass
 class TableSchema(Expr):
     """Table schema expression."""
 
@@ -90,11 +88,9 @@ class TableSchema(Expr):
         return output
 
 
-@dataclass
 class TableBase(Expr):
     """Table base expression class."""
 
-    @metadsl.expression
     def __getitem__(
         self, key: Union[str, List[str]]
     ) -> Union[Column, Projection]:
@@ -111,6 +107,39 @@ class TableBase(Expr):
         Projection or Column
             if the given ``key`` is a string, return is a Column
             if the given ``key`` is a list of string, return a Projection
+        """
+        if isinstance(key, str):
+            expr = self._get_column(key)
+        else:
+            expr = self._get_columns(key)
+        return expr
+
+    @metadsl.expression
+    def _get_column(self: TableBase, key: str) -> Column:
+        """
+        Get a column projection for the given key.
+
+        Parameters
+        ----------
+        key : str
+
+        Returns
+        -------
+        Column
+        """
+
+    @metadsl.expression
+    def _get_columns(self: TableBase, keys: List[str]) -> Projection:
+        """
+        Get columns projection for the given keys.
+
+        Parameters
+        ----------
+        keys : list[str]
+
+        Returns
+        -------
+        Projection
         """
 
     @metadsl.expression
@@ -214,7 +243,6 @@ class TableBase(Expr):
         """
 
 
-@dataclass
 class Table(TableBase):
     """Table expression class."""
 
@@ -356,23 +384,3 @@ class AnyScalar(ScalarExpr, AnyValue):
 
 class AnyColumn(ColumnExpr, AnyValue):
     """Any column expression."""
-
-
-# rewrite rules
-
-
-def _table_getitem_str(t: TableBase, k: list):
-    return (t[k], lambda: Projection.expr(t, k))
-
-
-def _table_getitem_list(t: TableBase, k: str):
-    return (
-        # expression to match agains
-        t[k],
-        # expression it is replaced with
-        lambda: Column.expr(t, k),
-    )
-
-
-rls.rewrite(_table_getitem_str)
-rls.rewrite(_table_getitem_list)
