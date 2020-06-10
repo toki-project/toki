@@ -1,7 +1,9 @@
 """Strategy rules mechanism module."""
 from typing import Callable
 
+import metadsl
 import metadsl_rewrite
+from metadsl_core.strategies import register_core
 
 
 class RegisterStrategy:
@@ -33,3 +35,34 @@ class RegisterStrategy:
         return metadsl_rewrite.StrategyRepeat(
             metadsl_rewrite.StrategyFold(inner_strategy)
         )
+
+
+def register(
+    name: str,
+    klass: metadsl.Expression,
+    f_source_name: str,
+    f_target: Callable,
+):
+    """
+    Register a function expression.
+
+    Parameters
+    ----------
+    name : str
+    klass : metadsl.Expression
+    f_source_name : str
+    f_target : Callable
+    """
+    f_target.__qualname__ = name
+    setattr(klass, f_source_name, metadsl.expression(f_target))
+
+
+def rewrite(fn: Callable):
+    """
+    Register a function expression.
+
+    Parameters
+    ----------
+    fn : Callable
+    """
+    register_core(metadsl_rewrite.rule(fn))

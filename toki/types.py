@@ -6,6 +6,8 @@ from typing import Any, Callable, Dict, List, Optional, Union
 
 import metadsl
 
+from toki import rules as rls
+
 # Expressions definition
 
 
@@ -17,21 +19,6 @@ def constructor(fn: Callable):
         return metadsl.expression(fn)(*args, **kwargs)
 
     return _fn
-
-
-def register(name: str, klass: Expr, f_source_name: str, f_target: Callable):
-    """
-    Register a function expression.
-
-    Parameters
-    ----------
-    name : str
-    klass : Expr
-    f_source_name : str
-    f_target : Callable
-    """
-    f_target.__qualname__ = name
-    setattr(klass, f_source_name, metadsl.expression(f_target))
 
 
 class Expr(metadsl.Expression):
@@ -108,7 +95,9 @@ class TableBase(Expr):
     """Table base expression class."""
 
     @metadsl.expression
-    def __getitem__(self, key: Union[str, List[str]]) -> Projection:
+    def __getitem__(
+        self, key: Union[str, List[str]]
+    ) -> Union[Column, Projection]:
         """
         Get item from Table.
 
@@ -119,7 +108,9 @@ class TableBase(Expr):
 
         Returns
         -------
-        Projection
+        Projection or Column
+            if the given ``key`` is a string, return is a Column
+            if the given ``key`` is a list of string, return a Projection
         """
 
     @metadsl.expression
@@ -288,6 +279,22 @@ class Table(TableBase):
 class Projection(TableBase):
     """Collection of columns expression"""
 
+    @staticmethod
+    @constructor
+    def expr(source: TableBase, columns: List[str],) -> Projection:
+        """
+        Create a projection expression for given table and columns name.
+
+        Parameters
+        ----------
+        source : TableBase
+        columns : list[str]
+
+        Returns
+        -------
+        Projection
+        """
+
     @property
     def source(self) -> Table:
         return self.args[0]
@@ -305,6 +312,26 @@ class Projection(TableBase):
         for l in repr(self.source).split('\n'):
             output += '  {}\n'.format(l)
         return output
+
+
+class Column(Projection):
+    """Column expression."""
+
+    @staticmethod
+    @constructor
+    def expr(source: TableBase, column: str,) -> Column:
+        """
+        Create a column projection expression for given table and column name.
+
+        Parameters
+        ----------
+        source : TableBase
+        column : str
+
+        Returns
+        -------
+        Column
+        """
 
 
 class ValueExpr(Expr):
@@ -329,3 +356,23 @@ class AnyScalar(ScalarExpr, AnyValue):
 
 class AnyColumn(ColumnExpr, AnyValue):
     """Any column expression."""
+
+
+# rewrite rules
+
+
+def _table_getitem_str(t: TableBase, k: list):
+    return (t[k], lambda: Projection.expr(t, k))
+
+
+def _table_getitem_list(t: TableBase, k: str):
+    return (
+        # expression to match agains
+        t[k],
+        # expression it is replaced with
+        lambda: Column.expr(t, k),
+    )
+
+
+rls.rewrite(_table_getitem_str)
+rls.rewrite(_table_getitem_list)

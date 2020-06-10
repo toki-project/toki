@@ -13,8 +13,9 @@ from toki import types as tps
 class DataType(tps.Expr):
     """Main data type class."""
 
-    def __repr__(self) -> str:
-        return '{}: {}'.format(self.function, self.args[0])
+    @property
+    def value(self) -> int:
+        return self.args[0]
 
 
 class Boolean(DataType):
@@ -23,6 +24,11 @@ class Boolean(DataType):
 
 class Number(DataType):
     """Number data type expression."""
+
+    @staticmethod
+    @tps.constructor
+    def expr(value: Union[int, float]) -> Number:
+        """Create a number expression with the given value."""
 
     @metadsl.expression
     def __add__(self, other: Union[Number, int, float]) -> Number:

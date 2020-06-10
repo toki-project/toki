@@ -8,8 +8,8 @@ class OperationExpr(tps.Expr):
     """Operation expression."""
 
 
-class Add(OperationExpr):
-    """Binary ``add`` operation."""
+class BinaryOp(OperationExpr):
+    """Binary base operation."""
 
     @property
     def left(self) -> dts.DataType:
@@ -23,3 +23,31 @@ class Add(OperationExpr):
     @tps.constructor
     def expr(left: dts.DataType, right: dts.DataType) -> Add:
         """Create an Add expression for the given parameters."""
+
+
+class Add(BinaryOp):
+    """Addition operation."""
+
+
+class Subtract(BinaryOp):
+    """Subtraction operation."""
+
+
+class Multiply(BinaryOp):
+    """Multiplication operation."""
+
+
+class Divide(BinaryOp):
+    """Division operation."""
+
+
+class FloorDivide(BinaryOp):
+    """Floor division operation."""
+
+
+class Power(BinaryOp):
+    """Power operation."""
+
+
+class Modulus(BinaryOp):
+    """Division operation."""
