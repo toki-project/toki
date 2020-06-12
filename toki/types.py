@@ -109,24 +109,22 @@ class TableBase(Expr):
             if the given ``key`` is a list of string, return a Projection
         """
         if isinstance(key, str):
-            expr = self._get_column(key)
+            if key not in self.schema.structure:
+                raise TypeError('Column ``{}`` not found.'.format(key))
+            _col_type = COLUMN_TYPE_MAP[self.schema.structure[key]['type']]
+            # TODO: check a way to normalize this problem
+            expr = _col_type.expr(self, key)  # type: ignore
         else:
+            cols_not_found = []
+            for k in key:
+                if k not in self.schema.structure:
+                    cols_not_found += [k]
+            if cols_not_found:
+                raise TypeError(
+                    'Columns {} not found.\n'.format(str(cols_not_found))
+                )
             expr = self._get_columns(key)
         return expr
-
-    @metadsl.expression
-    def _get_column(self: TableBase, key: str) -> Column:
-        """
-        Get a column projection for the given key.
-
-        Parameters
-        ----------
-        key : str
-
-        Returns
-        -------
-        Column
-        """
 
     @metadsl.expression
     def _get_columns(self: TableBase, keys: List[str]) -> Projection:
@@ -342,12 +340,18 @@ class Projection(TableBase):
         return output
 
 
-class Column(Projection):
+class Value(Expr):
     """Column expression."""
+
+
+class Column(Projection, Value):
+    """Column expression."""
+
+    rename: Optional[str] = None
 
     @staticmethod
     @constructor
-    def expr(source: TableBase, column: str,) -> Column:
+    def expr(source: TableBase, column: str) -> Column:
         """
         Create a column projection expression for given table and column name.
 
@@ -361,26 +365,184 @@ class Column(Projection):
         Column
         """
 
+    @property
+    def _display_name(self) -> str:
+        result = '{}[{}]'.format(self.__class__.__name__, str(self.columns))
+        if self.rename:
+            result += '(as {})'.format(self.rename)
+        return result
 
-class ValueExpr(Expr):
+    def name(self, name: str) -> Column:
+        self.rename = name
+        return self
+
+
+class Scalar(Value):
     """Column expression."""
 
 
-class ColumnExpr(ValueExpr):
-    """Column expression."""
-
-
-class ScalarExpr(ValueExpr):
-    """Column expression."""
-
-
-class AnyValue(ValueExpr):
+class AnyValue(Value):
     """Any value expression."""
 
 
-class AnyScalar(ScalarExpr, AnyValue):
+class AnyScalar(Scalar, AnyValue):
     """Any scalar expression."""
 
 
-class AnyColumn(ColumnExpr, AnyValue):
+class AnyColumn(Column, AnyValue):
     """Any column expression."""
+
+
+class NumericValue(Value):
+    """Numeric value expression."""
+
+
+class NumericScalar(Scalar, NumericValue):
+    """Numeric scalar expression."""
+
+
+class NumericColumn(Column, NumericValue):
+    """Numeric column expression."""
+
+
+class BooleanValue(NumericValue):
+    """Boolean value expression."""
+
+
+class BooleanScalar(Scalar, BooleanValue):
+    """Boolean scalar expression."""
+
+
+class BooleanColumn(Column, BooleanValue):
+    """Boolean column expression."""
+
+
+class IntegerValue(NumericValue):
+    """Integer value expression."""
+
+
+class IntegerScalar(Scalar, IntegerValue):
+    """Integer scalar expression."""
+
+
+class IntegerColumn(Column, IntegerValue):
+    """Integer column expression."""
+
+    @staticmethod
+    @constructor
+    def expr(source: TableBase, column: str) -> IntegerColumn:
+        """
+        Create an integer column projection expression.
+
+        Parameters
+        ----------
+        source : TableBase
+        column : str
+
+        Returns
+        -------
+        IntegerColumn
+        """
+
+
+class FloatingValue(NumericValue):
+    """Floating value expression."""
+
+
+class FloatingScalar(Scalar, FloatingValue):
+    """Floating scalar expression."""
+
+
+class FloatingColumn(Column, FloatingValue):
+    """Floating column expression."""
+
+
+class DecimalValue(NumericValue):
+    """Decimal value expression."""
+
+
+class DecimalScalar(Scalar, DecimalValue):
+    """Decimal scalar expression."""
+
+
+class DecimalColumn(Column, DecimalValue):
+    """Decimal column expression."""
+
+
+class StringValue(Value):
+    """String value expression."""
+
+
+class StringScalar(Scalar, StringValue):
+    """String scalar expression."""
+
+
+class StringColumn(Column, StringValue):
+    """String column expression."""
+
+
+class TemporalValue(Value):
+    """Temporal value expression."""
+
+
+class TemporalScalar(Scalar, TemporalValue):
+    """Temporal scalar expression."""
+
+
+class TemporalColumn(Column, TemporalValue):
+    """Temporal column expression."""
+
+
+class DateValue(TemporalValue):
+    """Date value expression."""
+
+
+class DateScalar(Scalar, DateValue):
+    """Date scalar expression."""
+
+
+class DateColumn(Column, DateValue):
+    """Date column expression."""
+
+
+class TimeValue(TemporalValue):
+    """Time value expression."""
+
+
+class TimeScalar(Scalar, TimeValue):
+    """Time scalar expression."""
+
+
+class TimeColumn(Column, TimeValue):
+    """Time column expression."""
+
+
+class TimestampValue(TemporalValue):
+    """Timestamp value expression."""
+
+
+class TimestampScalar(Scalar, TimestampValue):
+    """Timestamp scalar expression."""
+
+
+class TimestampColumn(Column, TimestampValue):
+    """Timestamp column expression."""
+
+
+# maps
+
+COLUMN_TYPE_MAP = {
+    'int': IntegerColumn,
+    'int8': IntegerColumn,
+    'int16': IntegerColumn,
+    'int32': IntegerColumn,
+    'int64': IntegerColumn,
+    'float16': FloatingColumn,
+    'float32': FloatingColumn,
+    'float64': FloatingColumn,
+    'decimal': DecimalColumn,
+    'bool': BooleanColumn,
+    'date': DateColumn,
+    'time': TimeColumn,
+    'timestamp': TimestampColumn,
+}

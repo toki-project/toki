@@ -4,14 +4,18 @@ from typing import Union
 from toki import datatypes as dts
 from toki import operations as ops
 from toki import rules as rls
+from toki import types as tps
 
 # number
 
 
 def _binop(name):
+    T = getattr(ops, name)
+
     def _op(
-        x: Union[int, float, dts.Number], y: Union[int, float, dts.Number]
-    ) -> ops.Add:
+        x: Union[int, float, dts.Number, tps.NumericValue],
+        y: Union[int, float, dts.Number, tps.NumericValue],
+    ) -> T:
         """Dispatch for ``{}`` between two numbers."""
 
     _op.__qualname__ = name.lower()
@@ -20,10 +24,55 @@ def _binop(name):
     return _op
 
 
-rls.register('Add', dts.Number, '__add__', _binop('Add'))
-rls.register('Subtract', dts.Number, '__sub__', _binop('Subtract'))
-rls.register('Muliply', dts.Number, '__mul__', _binop('Multiply'))
-rls.register('Divide', dts.Number, '__truediv__', _binop('Divide'))
-rls.register('FloorDivide', dts.Number, '__floordiv__', _binop('FloorDivide'))
-rls.register('Power', dts.Number, '__pow__', _binop('Power'))
-rls.register('Modulus', dts.Number, '__mod__', _binop('Modulus'))
+int_types = [
+    tps.IntegerValue,
+    tps.IntegerColumn,
+]
+
+floating_types = [
+    tps.FloatingValue,
+    tps.FloatingColumn,
+]
+
+number_types = [dts.Number, tps.NumericValue] + int_types + floating_types
+
+
+bin_op_maps = {
+    'Add': 'add',
+    'Subtract': 'sub',
+    'Multiply': 'mul',
+    'Divide': 'truediv',
+    'FloorDivide': 'floordiv',
+    'Power': 'pow',
+    'Modulus': 'mod',
+    # 'Equals': 'eq',
+    'GreaterEqual': 'ge',
+    'GreaterThan': 'gt',
+    'LessEqual': 'le',
+    'LessThan': 'lt',
+    'NotEquals': 'ne',
+}
+
+reverble_ops = [
+    'add',
+    'sub',
+    'mul',
+    'truediv',
+    'floordiv',
+    'pow',
+    'mod',
+]
+
+for tp in number_types:
+    for class_name, method_name in bin_op_maps.items():
+        op_modifies = ['']
+        if method_name in reverble_ops:
+            op_modifies = ['', 'r']
+
+        for modify in op_modifies:
+            rls.register(
+                class_name,
+                tp,
+                '__{}{}__'.format(modify, method_name),
+                _binop(class_name),
+            )

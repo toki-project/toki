@@ -1,3 +1,13 @@
+"""
+Operation expressions.
+
+Note
+----
+
+For base operations, that operations that is not used directly,
+use the suffix name "Op" (e.g. BinaryOp).
+
+"""
 from __future__ import annotations
 
 from toki import datatypes as dts
@@ -51,3 +61,35 @@ class Power(BinaryOp):
 
 class Modulus(BinaryOp):
     """Division operation."""
+
+
+class ComparisonOp(BinaryOp):
+    """Comparison operation"""
+
+
+class Equals(ComparisonOp):
+    """Equals operation"""
+
+
+class NotEquals(ComparisonOp):
+    """NotEquals operation"""
+
+
+class GreaterEqual(ComparisonOp):
+    """GreaterEqual operation"""
+
+
+class GreaterThan(ComparisonOp):
+    """GreaterThan operation"""
+
+
+class LessEqual(ComparisonOp):
+    """LessEqual operation"""
+
+
+class LessThan(ComparisonOp):
+    """LessThan operation"""
+
+
+class IdenticalTo(ComparisonOp):
+    """IdenticalTo operation"""
