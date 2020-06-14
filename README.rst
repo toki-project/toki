@@ -22,7 +22,7 @@ Toki: Database Expression API
 
 
 * Free software: Apache Software License 2.0
-* Documentation: https://toki.readthedocs.io.
+* Documentation: https://toki-project.github.io/toki/
 
 
 Features
