@@ -25,3 +25,4 @@ dependencies:
     # we should try using isort release that will be next after 4.3.21-2
     - git+git://github.com/timothycrosley/isort@18ad293fc9d1852776afe35015a932b68d26fb14#egg=isort
     - jupyter-book==0.7.0b1
+    - Sphinx>=2.0,<3
