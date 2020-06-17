@@ -5,13 +5,17 @@ from typing import Union
 
 import metadsl
 
-from toki.types import Expr
+from toki import types as tps
 
 # datatype classes
 
 
-class DataType(Expr):
+class DataType(tps.Expr):
     """Main data type class."""
+
+    @property
+    def value(self) -> int:
+        return self.args[0]
 
 
 class Boolean(DataType):
@@ -20,6 +24,11 @@ class Boolean(DataType):
 
 class Number(DataType):
     """Number data type expression."""
+
+    @staticmethod
+    @tps.constructor
+    def expr(value: Union[int, float]) -> Number:
+        """Create a number expression with the given value."""
 
     @metadsl.expression
     def __add__(self, other: Union[Number, int, float]) -> Number:
