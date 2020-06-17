@@ -6,7 +6,7 @@ Toki
 .. image:: https://img.shields.io/pypi/v/toki.svg
         :target: https://pypi.python.org/pypi/toki
 
-.. image:: https://codecov.io/gh/toki-project/toki/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/toki-project/toki/branch/main/graph/badge.svg
         :target: https://codecov.io/gh/toki-project/toki
 
 .. image:: https://readthedocs.org/projects/toki/badge/?version=latest
