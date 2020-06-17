@@ -31,10 +31,10 @@ $ git clone git://github.com/toki-project/toki
 ```
 
 Or download the
-[tarball](https://github.com/toki-project/toki/tarball/master):
+[tarball](https://github.com/toki-project/toki/tarball/main):
 
 ``` {.sourceCode .console}
-$ curl  -OL https://github.com/toki-project/toki/tarball/master
+$ curl  -OL https://github.com/toki-project/toki/tarball/main
 ```
 
 Once you have a copy of the source, you can install it with:
