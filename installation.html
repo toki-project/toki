@@ -30,8 +30,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="readme.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="contributing.html" />
+    <link rel="next" title="Toki Roadmap" href="roadmap.html" />
+    <link rel="prev" title="Contributing Guide" href="contributing.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -67,8 +67,20 @@
   <li class="">
     <a href="usage.html">Usage</a>
   </li>
+  <li class="">
+    <a href="contributors.html">Contributors</a>
+  </li>
+  <li class="">
+    <a href="contributing.html">Contributing Guide</a>
+  </li>
   <li class="active">
     <a href="">Installation</a>
+  </li>
+  <li class="">
+    <a href="roadmap.html">Toki Roadmap</a>
+  </li>
+  <li class="">
+    <a href="release-notes.html">Release notes</a>
   </li>
 </ul>
 </nav>
@@ -89,44 +101,61 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/installation.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/installation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
         <!-- Source interaction buttons -->
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-            <div class="dropdown-buttons sourcebuttons">
-                <a class="repository-button" href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
-                <a class="issues-button" href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Finstallation.html&body=Your%20issue%20content%20here."><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-                <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/installation.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-            </div>
-        </div>
-        
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Finstallation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/installation.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
 <div class="tocsection onthispage pt-5 pb-3">
@@ -167,7 +196,7 @@
 <div class="section" id="stable-release">
 <h2>Stable release<a class="headerlink" href="#stable-release" title="Permalink to this headline">¶</a></h2>
 <p>To install Toki, run this command in your terminal:</p>
-<div class="highlight-{.sourceCode notranslate"><div class="highlight"><pre><span></span>$ pip install toki
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install toki
 </pre></div>
 </div>
 <p>This is the preferred method to install Toki, as it will always install
@@ -182,16 +211,16 @@ can guide you through the process.</p>
 <p>The sources for Toki can be downloaded from the <a class="reference external" href="https://github.com/toki-project/toki">Github
 repo</a>.</p>
 <p>You can either clone the public repository:</p>
-<div class="highlight-{.sourceCode notranslate"><div class="highlight"><pre><span></span>$ git clone git://github.com/toki-project/toki
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone git://github.com/toki-project/toki
 </pre></div>
 </div>
 <p>Or download the
 <a class="reference external" href="https://github.com/toki-project/toki/tarball/main">tarball</a>:</p>
-<div class="highlight-{.sourceCode notranslate"><div class="highlight"><pre><span></span>$ curl  -OL https://github.com/toki-project/toki/tarball/main
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -OL https://github.com/toki-project/toki/tarball/main
 </pre></div>
 </div>
 <p>Once you have a copy of the source, you can install it with:</p>
-<div class="highlight-{.sourceCode notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python setup.py install
 </pre></div>
 </div>
 </div>
@@ -206,8 +235,8 @@ repo</a>.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="contributing.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="readme.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="contributing.html" title="previous page">Contributing Guide</a>
+    <a class='right-next' id="next-link" href="roadmap.html" title="next page">Toki Roadmap</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

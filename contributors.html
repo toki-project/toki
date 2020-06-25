@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Toki</title>
+    <title>Contributors &#8212; Toki</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="contributing.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="history.html" />
+    <link rel="next" title="Contributing Guide" href="contributing.html" />
+    <link rel="prev" title="Usage" href="usage.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -67,8 +67,20 @@
   <li class="">
     <a href="usage.html">Usage</a>
   </li>
+  <li class="active">
+    <a href="">Contributors</a>
+  </li>
+  <li class="">
+    <a href="contributing.html">Contributing Guide</a>
+  </li>
   <li class="">
     <a href="installation.html">Installation</a>
+  </li>
+  <li class="">
+    <a href="roadmap.html">Toki Roadmap</a>
+  </li>
+  <li class="">
+    <a href="release-notes.html">Release notes</a>
   </li>
 </ul>
 </nav>
@@ -89,49 +101,77 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/contributors.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/contributors.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
         <!-- Source interaction buttons -->
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-            <div class="dropdown-buttons sourcebuttons">
-                <a class="repository-button" href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
-                <a class="issues-button" href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Fcontributors.html&body=Your%20issue%20content%20here."><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-                <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/contributors.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-            </div>
-        </div>
-        
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Fcontributors.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/contributors.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#maintainers" class="nav-link">Maintainers</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">Contributors</a>
+        </li>
     
     </ul>
 </nav>
@@ -151,7 +191,21 @@
         
               <div>
                 
-  
+  <div class="section" id="contributors">
+<h1>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="maintainers">
+<h2>Maintainers<a class="headerlink" href="#maintainers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ivan Ogasawara <a class="reference external" href="mailto:ivan&#46;ogasawara&#37;&#52;&#48;gmail&#46;com">mailto:ivan<span>&#46;</span>ogasawara<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Contributors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Check the list of contributors at
+<a class="reference external" href="https://github.com/toki-project/toki/graphs/contributors">github toki contributors page</a></p>
+</div>
+</div>
+
 
               </div>
               
@@ -161,8 +215,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="history.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="contributing.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="usage.html" title="previous page">Usage</a>
+    <a class='right-next' id="next-link" href="contributing.html" title="next page">Contributing Guide</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

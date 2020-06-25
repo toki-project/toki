@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Toki</title>
+    <title>Contributing Guide &#8212; Toki</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -31,7 +31,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="contributors.html" />
+    <link rel="prev" title="Contributors" href="contributors.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -68,7 +68,19 @@
     <a href="usage.html">Usage</a>
   </li>
   <li class="">
+    <a href="contributors.html">Contributors</a>
+  </li>
+  <li class="active">
+    <a href="">Contributing Guide</a>
+  </li>
+  <li class="">
     <a href="installation.html">Installation</a>
+  </li>
+  <li class="">
+    <a href="roadmap.html">Toki Roadmap</a>
+  </li>
+  <li class="">
+    <a href="release-notes.html">Release notes</a>
   </li>
 </ul>
 </nav>
@@ -89,49 +101,117 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/contributing.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/contributing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
         <!-- Source interaction buttons -->
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-            <div class="dropdown-buttons sourcebuttons">
-                <a class="repository-button" href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
-                <a class="issues-button" href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Fcontributing.html&body=Your%20issue%20content%20here."><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-                <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/contributing.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-            </div>
-        </div>
-        
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/toki-project/toki"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/toki-project/toki/issues/new?title=Issue%20on%20page%20%2Fcontributing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/toki-project/toki/edit/main/contributing.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#types-of-contributions" class="nav-link">Types of Contributions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#report-bugs" class="nav-link">Report Bugs</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#fix-bugs" class="nav-link">Fix Bugs</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#implement-features" class="nav-link">Implement Features</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#write-documentation" class="nav-link">Write Documentation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#submit-feedback" class="nav-link">Submit Feedback</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#get-started" class="nav-link">Get Started!</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pull-request-guidelines" class="nav-link">Pull Request Guidelines</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#tips" class="nav-link">Tips</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#deploying" class="nav-link">Deploying</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#code-of-conduct" class="nav-link">Code of Conduct</a>
+        </li>
+    
+            </ul>
+        </li>
     
     </ul>
 </nav>
@@ -151,7 +231,122 @@
         
               <div>
                 
-  
+  <div class="section" id="contributing-guide">
+<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permalink to this headline">¶</a></h1>
+<p>Contributions are welcome, and they are greatly appreciated! Every little bit
+helps, and credit will always be given.</p>
+<p>You can contribute in many ways:</p>
+<div class="section" id="types-of-contributions">
+<h2>Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="report-bugs">
+<h3>Report Bugs<a class="headerlink" href="#report-bugs" title="Permalink to this headline">¶</a></h3>
+<p>Report bugs at https://github.com/toki-project/toki/issues.</p>
+<p>If you are reporting a bug, please include:</p>
+<ul class="simple">
+<li><p>Your operating system name and version.</p></li>
+<li><p>Any details about your local setup that might be helpful in troubleshooting.</p></li>
+<li><p>Detailed steps to reproduce the bug.</p></li>
+</ul>
+</div>
+<div class="section" id="fix-bugs">
+<h3>Fix Bugs<a class="headerlink" href="#fix-bugs" title="Permalink to this headline">¶</a></h3>
+<p>Look through the GitHub issues for bugs. Anything tagged with “bug” and “help
+wanted” is open to whoever wants to implement it.</p>
+</div>
+<div class="section" id="implement-features">
+<h3>Implement Features<a class="headerlink" href="#implement-features" title="Permalink to this headline">¶</a></h3>
+<p>Look through the GitHub issues for features. Anything tagged with “enhancement”
+and “help wanted” is open to whoever wants to implement it.</p>
+</div>
+<div class="section" id="write-documentation">
+<h3>Write Documentation<a class="headerlink" href="#write-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Toki could always use more documentation, whether as part of the
+official Toki docs, in docstrings, or even on the web in blog posts,
+articles, and such.</p>
+</div>
+<div class="section" id="submit-feedback">
+<h3>Submit Feedback<a class="headerlink" href="#submit-feedback" title="Permalink to this headline">¶</a></h3>
+<p>The best way to send feedback is to file an issue at https://github.com/toki-project/toki/issues.</p>
+<p>If you are proposing a feature:</p>
+<ul class="simple">
+<li><p>Explain in detail how it would work.</p></li>
+<li><p>Keep the scope as narrow as possible, to make it easier to implement.</p></li>
+<li><p>Remember that this is a volunteer-driven project, and that contributions
+are welcome :)</p></li>
+</ul>
+</div>
+<div class="section" id="get-started">
+<h3>Get Started!<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h3>
+<p>Ready to contribute? Here’s how to set up <code class="docutils literal notranslate"><span class="pre">toki</span></code> for local development.</p>
+<ol class="simple">
+<li><p>Fork the <code class="docutils literal notranslate"><span class="pre">toki</span></code> repo on GitHub.</p></li>
+<li><p>Clone your fork locally:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone git@github.com:your_name_here/toki.git
+</pre></div>
+</div>
+<ol>
+<li><p>Install your local copy into a virtual environment. Assuming want to use conda environment, this is how you set up your fork for local development:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $</span> conda env create -n toki-dev --file docker/environment-dev.yml
+<span class="gp">    $</span> make develop
+</pre></div>
+</div>
+</li>
+<li><p>Create a branch for local development:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $</span> git checkout -b name-of-your-bugfix-or-feature
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Commit your changes and push your branch to GitHub. When you commit a change, as it uses git pre-commit, it will run flake8, mypy, black and isort before commit any change:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $</span> git add .
+<span class="gp">    $</span> git commit -m <span class="s2">&quot;Your detailed description of your changes.&quot;</span>
+<span class="gp">    $</span> git push origin name-of-your-bugfix-or-feature
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Submit a pull request through the GitHub website.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="pull-request-guidelines">
+<h2>Pull Request Guidelines<a class="headerlink" href="#pull-request-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Before you submit a pull request, check that it meets these guidelines:</p>
+<ol class="simple">
+<li><p>The pull request should include tests.</p></li>
+<li><p>If the pull request adds functionality, the docs should be updated. Put your new functionality into a function with a docstring.</p></li>
+<li><p>The pull request should work for Python 3.8 or newer.</p></li>
+</ol>
+<div class="section" id="tips">
+<h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
+<p>To run a subset of tests:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $</span> pytest tests.test_expr.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploying">
+<h3>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO: use <code class="docutils literal notranslate"><span class="pre">rever</span></code> for deployment</p>
+</div>
+</div>
+<div class="section" id="code-of-conduct">
+<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h3>
+<p>Toki is governed by the
+<a class="reference external" href="https://numfocus.org/code-of-conduct">NumFOCUS code of conduct</a>,
+which in a short version is:</p>
+<ul class="simple">
+<li><p>Be kind to others. Do not insult or put down others. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate for NumFOCUS.</p></li>
+<li><p>All communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery is not appropriate.</p></li>
+<li><p>NumFOCUS is dedicated to providing a harassment-free community for everyone, regardless of gender, sexual orientation, gender identity and expression, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of community members in any form.</p></li>
+<li><p>Thank you for helping make this a welcoming, friendly community for all.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
 
               </div>
               
@@ -161,7 +356,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="contributors.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="contributors.html" title="previous page">Contributors</a>
     <a class='right-next' id="next-link" href="installation.html" title="next page">Installation</a>
 
     </div>
