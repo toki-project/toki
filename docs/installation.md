@@ -6,7 +6,7 @@ Stable release
 
 To install Toki, run this command in your terminal:
 
-``` {.sourceCode .console}
+```{sourceCode} console
 $ pip install toki
 ```
 
@@ -26,19 +26,19 @@ repo](https://github.com/toki-project/toki).
 
 You can either clone the public repository:
 
-``` {.sourceCode .console}
+```{sourceCode} console
 $ git clone git://github.com/toki-project/toki
 ```
 
 Or download the
 [tarball](https://github.com/toki-project/toki/tarball/main):
 
-``` {.sourceCode .console}
-$ curl  -OL https://github.com/toki-project/toki/tarball/main
+```{sourceCode} console
+$ curl -OL https://github.com/toki-project/toki/tarball/main
 ```
 
 Once you have a copy of the source, you can install it with:
 
-``` {.sourceCode .console}
+```{sourceCode} console
 $ python setup.py install
 ```
