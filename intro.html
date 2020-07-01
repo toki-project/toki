@@ -213,14 +213,14 @@
   <div class="section" id="toki-data-expression-api">
 <h1>Toki - Data Expression API<a class="headerlink" href="#toki-data-expression-api" title="Permalink to this headline">¶</a></h1>
 <p><strong>last update: 2020-06-24</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">Expression</span></code> is the base class used to create any kind of expression inside <code class="docutils literal notranslate"><span class="pre">toki</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Expression</span></code> is the base class used to create any kind of expressions inside <code class="docutils literal notranslate"><span class="pre">toki</span></code>.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">toki</span></code> expression is based on <code class="docutils literal notranslate"><span class="pre">metadsl</span></code> expression and, in general, it would create
-expression for <code class="docutils literal notranslate"><span class="pre">types</span></code>, <code class="docutils literal notranslate"><span class="pre">datatypes</span></code> and <code class="docutils literal notranslate"><span class="pre">operations</span></code>.</p>
+expressions for <code class="docutils literal notranslate"><span class="pre">types</span></code>, <code class="docutils literal notranslate"><span class="pre">datatypes</span></code> and <code class="docutils literal notranslate"><span class="pre">operations</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Currently there is no way to change <code class="docutils literal notranslate"><span class="pre">__init__</span></code> or <code class="docutils literal notranslate"><span class="pre">__new__</span></code> methods of an expression class.
+<p>Currently there is no way to change <code class="docutils literal notranslate"><span class="pre">__init__</span></code> or <code class="docutils literal notranslate"><span class="pre">__new__</span></code> methods of an expression class.
 Each time an expression is instantiated, <code class="docutils literal notranslate"><span class="pre">metadsl</span></code> clones that expression, so the
-<code class="docutils literal notranslate"><span class="pre">__new__</span></code> method is called again and receive some parameters used by the <code class="docutils literal notranslate"><span class="pre">metadsl</span></code> expression.</p>
+<code class="docutils literal notranslate"><span class="pre">__new__</span></code> method is called again and receives some parameters used by the <code class="docutils literal notranslate"><span class="pre">metadsl</span></code> expression.</p>
 </div>
 <p>For now, we can define a method <code class="docutils literal notranslate"><span class="pre">expr</span></code> that will create a new expression for that class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">Literal</span><span class="o">.</span><span class="n">expr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
@@ -228,9 +228,9 @@ Each time an expression is instantiated, <code class="docutils literal notransla
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Every function, method or class should use typing.</p>
+<p>Every function, method or class should use typing.</p>
 </div>
-<p>Initially, Toki core has the follow main modules:</p>
+<p>Initially, Toki core has the following main modules:</p>
 <ul class="simple">
 <li><p>api</p></li>
 <li><p>datatypes</p></li>
@@ -238,42 +238,42 @@ Each time an expression is instantiated, <code class="docutils literal notransla
 <li><p>rules</p></li>
 <li><p>types</p></li>
 </ul>
-<p>The main expression classes should use <code class="docutils literal notranslate"><span class="pre">Expr</span></code> suffix, so it would be easy to identify what classes
+<p>The main expression classes should use <code class="docutils literal notranslate"><span class="pre">Expr</span></code> suffix, facilitating the identification of which classes
 are the base classes, for example: <code class="docutils literal notranslate"><span class="pre">Expr</span></code>, <code class="docutils literal notranslate"><span class="pre">DataTypeExpr</span></code> <code class="docutils literal notranslate"><span class="pre">TypeExpr</span></code> and <code class="docutils literal notranslate"><span class="pre">OperationExpr</span></code>.
-Generally, these classes are not used directly, it can be used for typing or as base or metaclass classes.</p>
+Generally, these classes are not used directly, they can be used for typing or as base or metaclass classes.</p>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">toki.api</span></code> is responsable to prepare <code class="docutils literal notranslate"><span class="pre">toki</span></code> API, create expression for each combination of
+<p><code class="docutils literal notranslate"><span class="pre">toki.api</span></code> is responsable for preparing <code class="docutils literal notranslate"><span class="pre">toki</span></code> API, creating expression for each combination of
 operations and types and datatypes.</p>
 </div>
 <div class="section" id="data-types">
 <h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">toki.datatypes</span></code> is responsible for defining all the data types expressions. Its main class
+<p><code class="docutils literal notranslate"><span class="pre">toki.datatypes</span></code> is responsible for defining all the data type expressions. Its main class
 is <code class="docutils literal notranslate"><span class="pre">DataTypeExpr</span></code>. All the other data type classes shouldn’t use the suffix <code class="docutils literal notranslate"><span class="pre">Expr</span></code>.</p>
-<p>The initial <code class="docutils literal notranslate"><span class="pre">toki</span></code> plan is adding support for numeric, text, boolean and date/time data types.</p>
-<p>Data types expressions can be created using <code class="docutils literal notranslate"><span class="pre">expression</span> <span class="pre">constructor</span> <span class="pre">functions</span></code>.
-Generally, this constructors could be used with 1 positional parameter or a keyword <code class="docutils literal notranslate"><span class="pre">value</span></code>:</p>
+<p>The initial <code class="docutils literal notranslate"><span class="pre">toki</span></code> plan is to add support for numeric, text, boolean and date/time data types.</p>
+<p>Data type expressions can be created using <code class="docutils literal notranslate"><span class="pre">expression</span> <span class="pre">constructor</span> <span class="pre">functions</span></code>.
+Generally, these constructors could be used with 1 positional parameter or a keyword <code class="docutils literal notranslate"><span class="pre">value</span></code>:</p>
 <ul class="simple">
 <li><p>for <code class="docutils literal notranslate"><span class="pre">Int64</span></code>: <code class="docutils literal notranslate"><span class="pre">int64(1)</span></code> or <code class="docutils literal notranslate"><span class="pre">int64(value=1)</span></code></p></li>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">Float64</span></code>: <code class="docutils literal notranslate"><span class="pre">float64(1.0)</span></code> or <code class="docutils literal notranslate"><span class="pre">float64(value=1.0)</span></code></p></li>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">Date</span></code>: <code class="docutils literal notranslate"><span class="pre">date('2020-02-02')</span></code> or <code class="docutils literal notranslate"><span class="pre">date('2020-02-02')</span></code></p></li>
 </ul>
-<p>Some expression constructors could have extra parameter, for example: <code class="docutils literal notranslate"><span class="pre">Decimal('1.1234',</span> <span class="pre">precision=4)</span></code></p>
+<p>Some expression constructors could have extra parameters, for example: <code class="docutils literal notranslate"><span class="pre">Decimal('1.1234',</span> <span class="pre">precision=4)</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">dts</span></code>.</p>
+<p>Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">dts</span></code>.</p>
 </div>
 </div>
 <div class="section" id="operations">
 <h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">toki.operations</span></code> is responsible for defining all the expression for operations, such as
+<p><code class="docutils literal notranslate"><span class="pre">toki.operations</span></code> is responsible for defining all the expressions for operations, such as
 <code class="docutils literal notranslate"><span class="pre">Add</span></code>, <code class="docutils literal notranslate"><span class="pre">Subtract</span></code>, etc. Its main class is <code class="docutils literal notranslate"><span class="pre">OperationExpr</span></code>. All the other operation classes
-shouldn’t use the suffix <code class="docutils literal notranslate"><span class="pre">Expr</span></code>. If it is a base operations used for other classes, the
+shouldn’t use the suffix <code class="docutils literal notranslate"><span class="pre">Expr</span></code>. If it is a base operation used for other classes, the
 suffix <code class="docutils literal notranslate"><span class="pre">Op</span></code> should be used (e.g. <code class="docutils literal notranslate"><span class="pre">BinaryOp</span></code>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">toki</span></code> operations should have a <code class="docutils literal notranslate"><span class="pre">result_type</span></code> object that will be used to create a result expression.</p>
-<p>This is a 2-steps expression: 1) it creates an instance of a operation expression and it
-is used as parameter for 2) a instance of a <code class="docutils literal notranslate"><span class="pre">datatype</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code> or another <code class="docutils literal notranslate"><span class="pre">operation</span></code> expression,
-according to the <code class="docutils literal notranslate"><span class="pre">output_result</span></code>. It would looks similar to:</p>
+<p>This is a 2-step expression: 1) it creates an instance of an operation expression and it
+is used as a parameter for 2) an instance of a <code class="docutils literal notranslate"><span class="pre">datatype</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code> or another <code class="docutils literal notranslate"><span class="pre">operation</span></code> expression,
+according to the <code class="docutils literal notranslate"><span class="pre">result_type</span></code>. It would look similar to:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n1</span> <span class="o">=</span> <span class="n">int64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">int64</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
@@ -281,10 +281,10 @@ according to the <code class="docutils literal notranslate"><span class="pre">ou
 </pre></div>
 </div>
 <p>For the second step we could use the keyword <code class="docutils literal notranslate"><span class="pre">source</span></code> or <code class="docutils literal notranslate"><span class="pre">parent</span></code> or <code class="docutils literal notranslate"><span class="pre">value</span></code>. For now,
-<code class="docutils literal notranslate"><span class="pre">parent</span></code> will be used because the expressions are nodes in a graph. But it is opened for discussion.</p>
+<code class="docutils literal notranslate"><span class="pre">parent</span></code> will be used because the expressions are nodes in a graph. But it is open for discussion.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">ops</span></code>.</p>
+<p>Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">ops</span></code>.</p>
 </div>
 </div>
 <div class="section" id="rules">
@@ -292,7 +292,7 @@ according to the <code class="docutils literal notranslate"><span class="pre">ou
 <p><code class="docutils literal notranslate"><span class="pre">toki.rules</span></code> is responsible for defining all the expression types.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">rls</span></code>.</p>
+<p>Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">rls</span></code>.</p>
 </div>
 </div>
 <div class="section" id="types">
@@ -301,13 +301,13 @@ according to the <code class="docutils literal notranslate"><span class="pre">ou
 expression class is <code class="docutils literal notranslate"><span class="pre">Expr</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">tps</span></code>.</p>
+<p>Internally, this module is commonly abbreviated as <code class="docutils literal notranslate"><span class="pre">tps</span></code>.</p>
 </div>
 </div>
 <div class="section" id="backends-subpackage">
 <h2>Backends subpackage<a class="headerlink" href="#backends-subpackage" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">toki</span></code> aims to supply, initially, some base backends, such as <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">Standard</span> <span class="pre">SQL</span></code> and <code class="docutils literal notranslate"><span class="pre">SQLAlchemy</span></code>,
-so new backends could just inherit from one of these backends.</p>
+so new backends could just inherit that.</p>
 </div>
 <div class="section" id="general-notes">
 <h2>General notes<a class="headerlink" href="#general-notes" title="Permalink to this headline">¶</a></h2>
