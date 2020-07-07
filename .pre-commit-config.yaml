@@ -1,10 +1,10 @@
 repos:
     - repo: https://github.com/asottile/seed-isort-config
-      rev: v1.9.2
+      rev: v2.2.0
       hooks:
         - id: seed-isort-config
     - repo: https://github.com/timothycrosley/isort
-      rev: 18ad293fc9d1852776afe35015a932b68d26fb14
+      rev: 5.0.4
       hooks:
         - id: isort
 
@@ -14,14 +14,14 @@ repos:
         - id: black
 
     - repo: https://gitlab.com/pycqa/flake8
-      rev: 3.7.9
+      rev: 3.8.3
       hooks:
         - id: flake8
           types:
             - python
 
     - repo: https://github.com/pre-commit/mirrors-mypy
-      rev: 'master'
+      rev: 'v0.782'
       hooks:
       - id: mypy
         files: toki/
