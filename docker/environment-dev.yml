@@ -10,7 +10,7 @@ dependencies:
   # dev
   - black
   - docker-compose
-  - isort=5.0.4
+  - isort=5.1.1
   - flake8
   - mypy
   - pip
