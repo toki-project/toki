@@ -87,7 +87,7 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 develop: clean
-	python setup.py develop
+	pip install -e ".[dev]"
 	pre-commit install
 
 
