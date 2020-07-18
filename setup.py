@@ -18,6 +18,8 @@ dev_requirements = [
     'mypy',
     'pre-commit',
     'seed-isort-config',
+    're-ver',
+    'twine',
 ]
 test_requirements = ['responses']
 

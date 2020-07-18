@@ -20,7 +20,9 @@ dependencies:
   - pytest-cov
   - pytest-mock
   - pytest-xdist
+  - rever
   - seed-isort-config=2.2.0
   - sphinx>=2.0,<3
+  - twine
   - pip:
     - jupyter-book==0.7.1
