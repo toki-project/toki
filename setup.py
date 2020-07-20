@@ -23,8 +23,10 @@ dev_requirements = [
     # docs
     'jupyter-book',
     'Sphinx>=2.0,<3',
-    # test
+    # tests
     'responses',
+    # devops
+    'docker-compose',
 ]
 
 extra_requires = {'dev': requirements + dev_requirements}
