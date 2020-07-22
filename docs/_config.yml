@@ -1,7 +1,7 @@
 
 # Book settings
 title                       : Toki  # The title of the book. Will be placed in the left navbar.
-author                      : Ivan Ogasawara  # The author of the book
+author                      : Toki Project Team  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : ""  # A path to the book logo
 exclude_patterns: ["tutorials"]

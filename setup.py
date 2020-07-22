@@ -9,34 +9,27 @@ with open('docs/release-notes.md') as history_file:
     history = history_file.read()
 
 requirements = []
-setup_requirements = []
-doc_requirements = ['jupyter-book']
 dev_requirements = [
+    # lint and tools
     'black',
     'flake8',
     'isort',
     'mypy',
     'pre-commit',
     'seed-isort-config',
+    # publishing
     're-ver',
     'twine',
+    # docs
+    'jupyter-book',
+    'Sphinx>=2.0,<3',
+    # tests
+    'responses',
+    # devops
+    'docker-compose',
 ]
-test_requirements = ['responses']
 
-all_requirements = (
-    requirements
-    + doc_requirements
-    + dev_requirements
-    + test_requirements
-    + setup_requirements
-)
-
-extra_requires = {
-    'docs': doc_requirements,
-    'test': test_requirements,
-    'dev': dev_requirements,
-    'all': all_requirements,
-}
+extra_requires = {'dev': requirements + dev_requirements}
 
 setup(
     author="Ivan Ogasawara",
@@ -62,9 +55,7 @@ setup(
     keywords='toki',
     name='toki',
     packages=find_packages(include=['toki']),
-    setup_requires=setup_requirements,
     test_suite='tests',
-    tests_require=test_requirements,
     extras_require=extra_requires,
     url='https://github.com/toki-project/toki',
     version='0.0.1',

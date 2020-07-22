@@ -1,4 +1,4 @@
-$PROJECT = 'rever'
+$PROJECT = 'toki'
 $ACTIVITIES = [
     'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
     'changelog',  # Uses files in the news folder to create a changelog for release
@@ -10,7 +10,7 @@ $ACTIVITIES = [
 ]
 # These note where/how to find the version numbers
 $VERSION_BUMP_PATTERNS = [
-    ('rever/__init__.py', '__version__\s*=.*', "__version__ = '$VERSION'"),
+    ('toki/__init__.py', '__version__\s*=.*', "__version__ = '$VERSION'"),
     ('setup.py', 'version\s*=.*,', "version='$VERSION',")
 ]
 $CHANGELOG_FILENAME = 'docs/release-notes.md'  # Filename for the changelog
