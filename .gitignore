@@ -2,3 +2,6 @@
 
 # IDEs
 .vscode
+
+# jupyterlab
+.ipynb_checkpoints/
