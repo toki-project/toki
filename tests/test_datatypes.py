@@ -34,7 +34,8 @@ NUMBER_TYPES = INT_TYPES + FLOAT_TYPES
 )
 @pytest.mark.parametrize('n2', [None, 1])
 @pytest.mark.parametrize(
-    'op', common_number_ops,
+    'op',
+    common_number_ops,
 )
 def test_int_ops(con, n1, n2, op):
     if n2 is None:
@@ -46,14 +47,17 @@ def test_int_ops(con, n1, n2, op):
 
 
 @pytest.mark.parametrize(
-    'n1_type', [dtypes.float16, dtypes.float32, dtypes.float64],
+    'n1_type',
+    [dtypes.float16, dtypes.float32, dtypes.float64],
 )
 @pytest.mark.parametrize(
-    'n1_value', [1, 1.0],
+    'n1_value',
+    [1, 1.0],
 )
 @pytest.mark.parametrize('n2', [None, 1])
 @pytest.mark.parametrize(
-    'op', common_number_ops,
+    'op',
+    common_number_ops,
 )
 def test_float_ops(n1_type, n1_value, n2, op):
     n1 = n1_type(n1_value)
