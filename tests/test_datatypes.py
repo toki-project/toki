@@ -24,10 +24,12 @@ def test_int_ops(n1, n2, op):
 
 
 @pytest.mark.parametrize(
-    'n1_type', [dtypes.float16, dtypes.float32, dtypes.float64],
+    'n1_type',
+    [dtypes.float16, dtypes.float32, dtypes.float64],
 )
 @pytest.mark.parametrize(
-    'n1_value', [1, 1.0],
+    'n1_value',
+    [1, 1.0],
 )
 @pytest.mark.parametrize('n2', [None, 1])
 @pytest.mark.parametrize(
