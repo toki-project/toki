@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+dependencies:
+  - clang
+  - cmake
+  - jupyterlab
+  - make
+  - python
+  - xeus

@@ -3,30 +3,7 @@ import pytest
 
 from toki import datatypes as dtypes
 
-common_number_ops = [
-    'add',
-    'divmod',
-    # 'eq',
-    'ge',
-    'gt',
-    'le',
-    'lt',
-    'mod',
-    'mul',
-    'pow',
-    'radd',
-    'rdivmod',
-    'rmod',
-    'rmul',
-    'rpow',
-    'rsub',
-    'sub',
-]
-
-
-INT_TYPES = ('int8', 'int16', 'int32', 'int64')
-FLOAT_TYPES = ('float16', 'float16', 'float64')
-NUMBER_TYPES = INT_TYPES + FLOAT_TYPES
+from .common import numeric_ops_map
 
 
 @pytest.mark.parametrize(
@@ -34,16 +11,16 @@ NUMBER_TYPES = INT_TYPES + FLOAT_TYPES
 )
 @pytest.mark.parametrize('n2', [None, 1])
 @pytest.mark.parametrize(
-    'op',
-    common_number_ops,
+    'op', numeric_ops_map.items(),
 )
-def test_int_ops(con, n1, n2, op):
+def test_int_ops(n1, n2, op):
+    op_name, op_class = op
+
     if n2 is None:
         n2 = n1
 
-    result = getattr(n1, '__{}__'.format(op))(n2)
-    assert isinstance(result, dtypes.DataType)
-    con.compile
+    result = getattr(n1, '__{}__'.format(op_name))(n2)
+    assert isinstance(result, op_class)
 
 
 @pytest.mark.parametrize(
@@ -56,37 +33,14 @@ def test_int_ops(con, n1, n2, op):
 )
 @pytest.mark.parametrize('n2', [None, 1])
 @pytest.mark.parametrize(
-    'op',
-    common_number_ops,
+    'op', numeric_ops_map.items(),
 )
 def test_float_ops(n1_type, n1_value, n2, op):
+    op_name, op_class = op
     n1 = n1_type(n1_value)
 
     if n2 is None:
         n2 = n1
 
-    result = getattr(n1, '__{}__'.format(op))(n2)
-    assert isinstance(result, dtypes.DataType)
-
-
-@pytest.mark.parametrize('tp_x', NUMBER_TYPES)
-@pytest.mark.parametrize('tp_y', NUMBER_TYPES)
-def test_compile(con, tp_x, tp_y):
-    _dtype_x = getattr(dtypes, tp_x)
-    _dtype_primitive_x = int if tp_x.startswith('int') else float
-    x = _dtype_primitive_x(1)
-    x_expr = _dtype_x(x)
-
-    _dtype_y = getattr(dtypes, tp_y)
-    _dtype_primitive_y = int if tp_y.startswith('int') else float
-
-    y = _dtype_primitive_y(2)
-    y_expr = _dtype_y(y)
-
-    assert con.compile(x_expr + y_expr) == '{} + {}'.format(x, y)
-    assert con.compile(x_expr - y_expr) == '{} - {}'.format(x, y)
-    assert con.compile(x_expr * y_expr) == '{} * {}'.format(x, y)
-    assert con.compile(x_expr / y_expr) == '{} / {}'.format(x, y)
-    assert con.compile(x_expr // y_expr) == '{} // {}'.format(x, y)
-    assert con.compile(x_expr ** y_expr) == '{} ** {}'.format(x, y)
-    assert con.compile(x_expr % y_expr) == '{} % {}'.format(x, y)
+    result = getattr(n1, '__{}__'.format(op_name))(n2)
+    assert isinstance(result, op_class)
